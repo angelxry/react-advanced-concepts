@@ -1,17 +1,46 @@
+import { useEffect, useRef } from "react";
+
 export function App() {
+  const cardCodeInputRef = useRef();
+  const cardExpirationInputRef = useRef();
+
+  function handleCardCodeChange(e) {
+    if (e.target.value.length >= 3) {
+      cardExpirationInputRef.current.focus();
+    }
+  }
+
+  function handleCardNumberChange(e) {
+    if (e.target.value.length >= 16) {
+      cardCodeInputRef.current.focus();
+    }
+  }
   return (
     <>
       <div>
         <label>Credit card number</label>
-        <input type="number" name="creditCardNumber" />
+        <input
+          onChange={handleCardNumberChange}
+          type="number"
+          name="creditCardNumber"
+        />
       </div>
       <div>
         <label>Secret code</label>
-        <input type="number" name="creditCardCode" />
+        <input
+          ref={cardCodeInputRef}
+          onChange={handleCardCodeChange}
+          type="number"
+          name="creditCardCode"
+        />
       </div>
       <div>
         <label>Expiration date</label>
-        <input type="text" name="creditCardExpiration" />
+        <input
+          ref={cardExpirationInputRef}
+          type="text"
+          name="creditCardExpiration"
+        />
       </div>
     </>
   );
