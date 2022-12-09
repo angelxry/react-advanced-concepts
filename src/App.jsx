@@ -1,5 +1,7 @@
 import { useMemo, useState } from "react";
 
+import { Dog } from "./Dog";
+
 export function App() {
   const [number, setNumber] = useState(1);
   const [counter, setCounter] = useState(0);
@@ -23,6 +25,7 @@ export function App() {
         <button onClick={onClick}>Augmenter compteur</button>
         Compteur : {counter}
       </div>
+      <Dog food="Meat" />
     </div>
   );
 }
