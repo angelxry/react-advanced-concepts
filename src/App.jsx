@@ -1,49 +1,38 @@
-import { useRef } from "react";
+import { useMemo, useState } from "react";
+
 export function App() {
+  const [number, setNumber] = useState(1);
+  const [counter, setCounter] = useState(0);
 
-  const codeInputRef = useRef();
-  const dateInputRef = useRef();
+  const result = useMemo(() => heavyCalculation(number), [number]);
 
-  function handleCardNumberChange(e) {
-    if (e.target.value.length >= 16) {
-      codeInputRef.current.focus();
-    }
-  }
+  const onChange = (event) => {
+    setNumber(Number(event.target.value));
+  };
 
-
-  function handleCodeChange(e) {
-    if (e.target.value.length >= 3) {
-      dateInputRef.current.focus();
-    }
-  }
-
-  function handleDateChange(e) {
-    if (e.target.value.length >= 4) {
-      dateInputRef.current.blur();
-    }
-  }
+  const onClick = () => setCounter(counter + 1);
 
   return (
-    <>
+    <div>
       <div>
-        <label>Code carte bancaire</label>
-        <input
-          autoFocus
-          onChange={handleCardNumberChange}
-          type="number"
-          name="creditCardNumber"
-        />
+        Méga calcul sur
+        <input type="number" value={number} onChange={onChange} />
+        Résultat : {result}
       </div>
       <div>
-        <label>Code à 3 chiffres</label>
-        <input onChange={handleCodeChange} ref={codeInputRef} type="number" name="creditCardCode" />
+        <button onClick={onClick}>Augmenter compteur</button>
+        Compteur : {counter}
       </div>
-      <div>
-        <label>Expiration</label>
-        <input onChange={handleDateChange} ref={dateInputRef} type="text" name="creditCardCode" />
-      </div>
-
-    </>
+    </div>
   );
+}
 
+function heavyCalculation(value) {
+  console.log("heavyCalculation()");
+  let newResult = 0;
+  for (let i = 0; i < 1000; i++) {
+    console.log("Loop");
+    newResult += i * value;
+  }
+  return newResult;
 }
