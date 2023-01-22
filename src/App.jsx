@@ -19,7 +19,7 @@ export function App() {
   return (
     <>
       <div>
-        <label>Credit card number</label>
+        <label>Numéro de carte</label>
         <input
           onChange={handleCardNumberChange}
           type="number"
@@ -27,7 +27,7 @@ export function App() {
         />
       </div>
       <div>
-        <label>Secret code</label>
+        <label>Code secret</label>
         <input
           ref={cardCodeInputRef}
           onChange={handleCardCodeChange}
