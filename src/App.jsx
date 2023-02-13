@@ -27,6 +27,7 @@ export function App() {
     }
   }, [isBottom, pageToFetch]);
 
+  console.log("isBottom ? ", isBottom);
   // return a version of incrementPage that can't be called more than once every 2 secondes
   // We also use useCallback to make sure we use the same version of the throlled function
   const throttledSetNextPage = useCallback(
@@ -44,7 +45,7 @@ export function App() {
   async function fetchImgListByPage() {
     console.log("Fetch page ", pageToFetch);
     const imgListResp = (
-      await axios(`https://picsum.photos/v2/list?page=${pageToFetch}&limit=10`)
+      await axios(`https://picsum.photos/v2/list?page=${pageToFetch}&limit=5`)
     ).data;
     setImageList([...imageList, ...imgListResp]);
     setIsLoading(false);
