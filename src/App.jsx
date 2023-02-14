@@ -1,10 +1,13 @@
 /* eslint-disable */
 
 import { ImageList } from "components/ImageList/ImageList";
+import { useScrollPosition } from "hooks/useScrollPosition";
 import { useState } from "react";
 import s from "./App.module.css";
 export function App() {
   const [imageList, setImageList] = useState(DATA);
+  const { isBottom } = useScrollPosition();
+
   return (
     <div className={s.root}>
       <h1>Rand'images</h1>
