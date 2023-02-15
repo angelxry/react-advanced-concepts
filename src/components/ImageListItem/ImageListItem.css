@@ -3,6 +3,12 @@
     width: 500px;
 }
 
+button{
+    background-color: black;
+    border-radius: 20px;
+    color:white;
+    padding: 3px 15px;
+}
 .card {
     border-radius: 40px;
     overflow: hidden;
@@ -28,7 +34,8 @@
 
 .card_status {
     font-size: .8em;
-    color: black
+    color: black;
+    margin-bottom: 7px;
 }
 
 .card_text{
