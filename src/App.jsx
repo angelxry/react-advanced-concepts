@@ -1,5 +1,3 @@
-/* eslint-disable */
-
 import { ImageList } from "components/ImageList/ImageList";
 import { useScrollPosition } from "hooks/useScrollPosition";
 import { useEffect, useState } from "react";
@@ -19,7 +17,6 @@ export function App() {
   useEffect(() => {
     if (isBottom) {
       console.log("On est en bas, increment de la page !");
-
       incrementPage();
     }
   }, [isBottom]);
