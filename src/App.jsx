@@ -1,5 +1,3 @@
-/* eslint-disable */
-
 import { ImageList } from "components/ImageList/ImageList";
 import { useScrollPosition } from "hooks/useScrollPosition";
 import { useEffect, useState } from "react";
