@@ -1,5 +1,3 @@
-/* eslint-disable */
-
 import { ImageList } from "components/ImageList/ImageList";
 import { useState } from "react";
 import s from "./App.module.css";
