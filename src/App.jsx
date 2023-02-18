@@ -8,18 +8,6 @@ export function App() {
   const { isBottom } = useScrollPosition();
   const [pageToFetch, setPageToFetch] = useState(1);
   const [isLoading, setIsLoading] = useState(false);
-  // [x] Store the page number to fetch
-
-  // [x] Create a function request to fetch 5 others images (using the page to fetch)
-  // [x] Add the new images in imageList
-
-  // [x] Listen to pageToFetch updates and request new images, when it changes
-
-  // [x] Create a function to increase the page to fetch number
-
-  // [x] Increase the page number when reaching the bottom of the screen
-
-  // [] Display a spinner while a request is loading
 
   useEffect(() => {
     fetchImagesByPage(pageToFetch);
